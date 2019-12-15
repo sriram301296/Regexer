@@ -1,5 +1,6 @@
 import com.homemadeapps.reverseregexer.util.ReverseRegexUtil;
 import com.homemadeapps.reverseregexer.util.ReverseRegexUtilFactory;
+import com.homemadeapps.reverseregexer.util.regexReplacementStrategies.RangeStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +20,7 @@ public class RegexTest {
             for (String string : inputStrings) {
                 final String regex = reverseRegexUtil.generateRegex(string);
                 final boolean regexMatch = reverseRegexUtil.regexMatches(regex, string);
-                //System.out.println(String.format("String: %s produced regex: %s. Whether it matched: %b", string, regex, regexMatch));
+                System.out.println(String.format("String: %s produced regex: %s. Whether it matched: %b", string, regex, regexMatch));
                 if (!regexMatch) {
                     System.out.println(String.format("Regex: %s for string %s did not match", regex, string));
                 }
@@ -28,6 +29,7 @@ public class RegexTest {
                 }
             }
         }
+
         System.out.println("Ran all strings. No. of correct matches: " + matches);
     }
 
@@ -50,7 +52,7 @@ public class RegexTest {
         return builder.toString();
     }
 
-    private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz123456789";
+    private static final String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0abcdefghijklmnopqrstuvwxyz123456789 ";
 
     private static ReverseRegexUtil reverseRegexUtil = ReverseRegexUtilFactory.getReverseRegexUtil();
 }

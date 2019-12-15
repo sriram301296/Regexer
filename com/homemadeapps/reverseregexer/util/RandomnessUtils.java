@@ -8,7 +8,7 @@ import static com.homemadeapps.reverseregexer.util.Constants.*;
 
 public class RandomnessUtils {
 
-    public static String getRandomCharacter(final int threshold) {
+    public static String getRandomAlphaNumericCharacter(final int threshold) {
         final StringBuilder randomCharacters = new StringBuilder();
         int shouldAddRandomCharacter = (int)(Math.random() * 100);
         while (shouldAddRandomCharacter < threshold) {
@@ -25,7 +25,12 @@ public class RandomnessUtils {
         return randomCharacters.toString();
     }
 
-    private static char randomize(final int min, final int max) {
+    public static int getRandomTreatment(final int numberOfTreatments) {
+        int randomTreatment = (int)((Math.random() * (100))) % numberOfTreatments + 1;
+        return randomTreatment;
+    }
+
+    public static char randomize(final int min, final int max) {
         return (char)(int)((Math.random() * ((max - min) + 1)) + min);
     }
 }
